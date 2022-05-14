@@ -39,7 +39,7 @@ export default{
             this.image = file[0];
         },
         async submitForm(){
-            const response = await fetch("https://skin-care-tips.herokuapp.com/api/user/login/");
+            const response = await fetch("https://intense-cliffs-65997.herokuapp.com/api/user/login/");
       if(localStorage.getItem("token")===null){
         
         

@@ -54,7 +54,7 @@ export default{
     },
  methods:{
         async submitHandler(){
-            const response = await fetch("https://skin-care-tips.herokuapp.com/api/admin/login/",{
+            const response = await fetch("https://intense-cliffs-65997.herokuapp.com/api/admin/login/",{
 
                 method: "POST",
                 headers:{
