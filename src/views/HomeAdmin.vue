@@ -5,9 +5,9 @@
     {{this.$route.params.message}}
     </v-alert>
     <v-row>
-      <v-card>
+      <v-title>
             <router-link to="/add-product">Add new product</router-link>
-             </v-card>
+             </v-title>
       <v-col sm="4" class="pa-3" v-for="product in products" :key="product._id">
 
         <v-card class="pa-1" :to="{ name:'product', params:{id:product._id}}" >
