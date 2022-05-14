@@ -70,7 +70,7 @@
      }),
          methods:{
              async removeToken(){
-                 const response = await fetch("https://intense-cliffs-65997.herokuapp.com/api/user/login/");
+                 const response = await fetch("http://localhost:5000/api/user/login/");
                  localStorage.clear();
                    this.$router.push({
                    name: 'login',
