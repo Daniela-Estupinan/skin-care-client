@@ -35,7 +35,18 @@ import API from "../api-admin.js"
       };
     },
     async created(){
-        this.products = await API.getAllProducts();
+              const response = await fetch("https://skin-care-tips.herokuapp.com/api/user/login/");
+      if(localStorage.getItem("token")===null){
+        console.log(localStorage.getItem("token"));
+        
+        this.$router.push({
+                   name: 'login',
+                  params: {message: response.message}
+               });
+      }else{
+        this.posts = await API.getAllProducts();
+      }
+
       }
 
     };
