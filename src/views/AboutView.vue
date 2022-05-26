@@ -44,7 +44,7 @@ import API from "../api-admin.js"
                   params: {message: response.message}
                });
       }else{
-        this.posts = await API.getAllProducts();
+        this.products = await API.getAllProducts();
       }
 
       }
