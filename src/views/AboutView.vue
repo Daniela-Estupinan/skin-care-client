@@ -1,41 +1,43 @@
 <template>
-    <v-container>
-        <v-row no-gutters> 
-            <v-col sm="10" class="pa-4 mx-auto"> </v-col>
-            <v-card class="pa-2">
-                <v-card-actions class="pb-0">
-                    <v-row class="mt-1 mx-1">
-                        <v-col sm="2">
-                            <v-btn small outlined color="pink">
-                                {{product.category}}
-                            </v-btn>
-                        </v-col>
-                        <v-col sm="10" class="d-flex justify-end">
-                        </v-col>
-                    </v-row>
-                </v-card-actions>
-                <v-card-subtitle class="headline">
-                    <h3>{{product.nombre}}</h3>
-                </v-card-subtitle>
-                <v-card-text class="grey--text">
-                    <p>{{product.content}}</p>   
-                </v-card-text>
-            </v-card>
-        </v-row>
-    </v-container>
+  <v-container>
+    <v-alert border="left" close-text="Close Alert" color = "green accent-4" dark
+    dismissible v-if="this.$route.params.message">
+    {{this.$route.params.message}}
+    </v-alert>
+    <v-row>
+            <v-col sm="4" class="pa-3" v-for="product in products" :key="product._id">
+
+        <v-card class="pa-1" :to="{ name:'product', params:{id:product._id}}" >
+          <v-card-text class="py-0">
+            {{product.category}}
+          </v-card-text>
+          <v-card-title class="headline">
+            {{product.nombre}}
+          </v-card-title>
+          <v-card-text class="py-0" >
+            <p>
+              {{product.content.substring(0, 100)+"..."}}
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
+
 <script>
 import API from "../api-admin.js"
-    export default{
-        data(){
-            return{
-                product:{},
-            };
-        },
-        async created(){
-            const response = await API.getProductsByID(this.$route.params.id)
-            this.product = response;
-        },
+  export default {
+    name: 'AboutView',
+    data(){
+      return{
+        products:[],
+      };
+    },
+    async created(){
+        this.products = await API.getAllProducts();
+      }
 
     };
 </script>
+ 
