@@ -4,7 +4,8 @@
     dismissible v-if="this.$route.params.message">
     {{this.$route.params.message}}
     </v-alert>
-    <input type="text" v-model="search" placeholder="Categoría"/>
+    <input type="text" v-model="search" class="pa-2" placeholder="Tipo de Piel"/>
+    
     <v-row>
             
             <v-col sm="4" class="pa-3" v-for="product in filteredProduct" :key="product._id">
