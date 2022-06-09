@@ -4,9 +4,11 @@
     dismissible v-if="this.$route.params.message">
     {{this.$route.params.message}}
     </v-alert>
+    <input type="text" v-model="search" placeholder="Categoría"/>
     <v-row>
-            <v-col sm="4" class="pa-3" v-for="product in products" :key="product._id">
-
+            
+            <v-col sm="4" class="pa-3" v-for="product in filteredProduct" :key="product._id">
+        
         <v-card class="pa-1" :to="{ name:'product', params:{id:product._id}}" >
           <v-card-text class="py-0">
             {{product.category}}
@@ -32,6 +34,7 @@ import API from "../api-admin.js"
     data(){
       return{
         products:[],
+        search:''
       };
     },
     async created(){
@@ -47,8 +50,14 @@ import API from "../api-admin.js"
         this.products = await API.getAllProducts();
       }
 
+      },
+      computed:{
+        filteredProduct: function(){
+          return this.products.filter(product =>{
+            return product.category.match(this.search);
+          });
+        }
       }
-
     };
 </script>
  
