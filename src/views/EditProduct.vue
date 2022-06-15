@@ -9,6 +9,7 @@
                     <v-divider></v-divider>
                     <v-form ref="form" @submit.prevent="updateForm" class="pa-5" enctype="multipart/form-data">
                     <v-text-field label="Nombre" v-model="product.nombre" prepend-icon="mdi-note" :rules="rules"></v-text-field>
+                    <v-text-field label="Category ID" v-model="product.categoryN" prepend-icon="mdi-view-list" :rules="rules"></v-text-field>
                     <v-text-field label="Category" v-model="product.category" prepend-icon="mdi-view-list" :rules="rules"></v-text-field>                    
                     <v-textarea label="Content" v-model="product.content" prepend-icon="mdi-note-plus" :rules="rules"></v-textarea>     
                     <v-btn type="submit" class="mt-3" color="success">Update Product</v-btn>      
@@ -26,6 +27,7 @@ export default{
             rules:[(value)=> !!value || "This field is required*"],
             product:{
                 nombre:"",
+                categoryN:"",               
                 category:"",
                 content:"",
 
@@ -42,6 +44,7 @@ export default{
             const formData = new FormData();
            
             formData.append('nombre', this.product.nombre);
+            formData.append('categoryN',this.product.categoryN);
            formData.append('category', this.product.category);
            formData.append('content', this.product.content);
 

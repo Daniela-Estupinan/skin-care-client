@@ -25,7 +25,7 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-btn class="mt-3" color="deep-purple accent-1"> Filtro Avanzado de Productos </v-btn>
+    <v-btn  color="deep-purple accent-4" text :to="{name: 'filter'}"> Filtro Avanzado de Productos </v-btn>
   </v-container>
 </template>
 

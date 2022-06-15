@@ -11,6 +11,7 @@ import AddProduct from '../views/AddProduct.vue'
 import HomeAdmin from '../views/HomeAdmin.vue'
 import EditProduct from '../views/EditProduct.vue'
 import Product from '../views/Product.vue'
+import AdvanceFilter from '../views/AdvanceFilter.vue'
 
 Vue.use(VueRouter)
 
@@ -53,7 +54,11 @@ const routes = [
     name: 'edit-post',
     component: EditPost,
   },
-  
+  {
+    path:'/filter',
+    name:'filter',
+    component: AdvanceFilter,
+  },
   {
     path: '/about',
     name: 'about',
