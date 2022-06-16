@@ -1,7 +1,7 @@
 <template>
     <div class="container" id="app">
   <div class="row ">
-    <div class="col-md-4">
+    <div class="col-md-6">
       <div class="filter">
         <label><input type="checkbox" v-model="selectedCategory" value="0"/> Todos</label>
         <label><input type="checkbox" v-model="selectedCategory" value="1" /> Piel Seca</label>
