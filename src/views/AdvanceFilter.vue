@@ -1,4 +1,5 @@
 <template>
+<v-app style="background: #FFCDD2">
     <div class="container" id="app">
   <div class="row ">
     <div class="col-md-6">
@@ -31,7 +32,7 @@
     </v-row>
     </div>
   </div>
-
+</v-app>
 </template>
 <script>
 import API from "../api-admin.js"
