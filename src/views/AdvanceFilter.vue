@@ -9,10 +9,10 @@
         <label><input type="checkbox" v-model="selectedCategory" value="3" /> Piel Grasa</label>
         <label><input type="checkbox" v-model="selectedCategory" value="4" /> Piel Normal</label>
       </div>
-
     </div>
   </div>
   <div class="col-md-8">
+    <v-row>
     <v-col sm="4" class="pa-3" v-for="product in filteredProduct" :key="product._id">
        <v-card class="pa-1" :to="{ name:'product', params:{id:product._id}}" >
           <v-card-text class="py-0">
@@ -28,6 +28,7 @@
           </v-card-text>
         </v-card>
     </v-col>
+    </v-row>
     </div>
   </div>
 
