@@ -5,18 +5,18 @@
     <div class="col-md-6">
       <div class="filter">
         <span class="mdi mdi-filter">Filtro Categoria</span><div></div> 
-        <label><input type="checkbox" v-model="selectedCategory" value="0"/> Todos</label>
-        <label><input type="checkbox" v-model="selectedCategory" value="1" /> Piel Seca</label>
-        <label><input type="checkbox" v-model="selectedCategory" value="2"/> Piel Mixta</label>
-        <label><input type="checkbox" v-model="selectedCategory" value="3" /> Piel Grasa</label>
-        <label><input type="checkbox" v-model="selectedCategory" value="4" /> Piel Normal</label> 
+        <label><input type="checkbox" v-model="selectedCategory" value="0"/> Todos </label>
+        <label><input type="checkbox" v-model="selectedCategory" value="1" /> Piel Seca </label>
+        <label><input type="checkbox" v-model="selectedCategory" value="2"/> Piel Mixta </label>
+        <label><input type="checkbox" v-model="selectedCategory" value="3" /> Piel Grasa </label>
+        <label><input type="checkbox" v-model="selectedCategory" value="4" /> Piel Normal </label> 
         <div></div><span class="mdi mdi-filter">Filtro Precio</span><div></div>  
-        <label><input type="checkbox" v-model="range" value="0" />Todos</label>    
-        <label><input type="checkbox" v-model="range" value="1" /> $5-$10</label>
-        <label><input type="checkbox" v-model="range" value="2" /> $11-$15</label> 
-        <label><input type="checkbox" v-model="range" value="3" /> $16-$20</label> 
-        <label><input type="checkbox" v-model="range" value="4" /> $21-$30</label> 
-        <label><input type="checkbox" v-model="range" value="5" /> $30-$50</label>  
+        <label><input type="checkbox" v-model="range" value="0" />Todos </label>    
+        <label><input type="checkbox" v-model="range" value="1" /> $5-$10 </label>
+        <label><input type="checkbox" v-model="range" value="2" /> $11-$15 </label> 
+        <label><input type="checkbox" v-model="range" value="3" /> $16-$20 </label> 
+        <label><input type="checkbox" v-model="range" value="4" /> $21-$30 </label> 
+        <label><input type="checkbox" v-model="range" value="5" /> $30-$50 </label>  
  <div class="col-md-6 "> 
 
 </div>
@@ -27,7 +27,7 @@
      <div class="col-md-8">
     <v-row>
     <v-col sm="4" class="pa-3" v-for="product in  filterProduct" :key="product._id">
-       <v-card class="pa-1" :to="{ name:'product', params:{id:product._id}}" >
+       <v-card class="pa-0" :to="{ name:'product', params:{id:product._id}}" >
           <v-card-text class="py-0">
             {{product.category}}
           </v-card-text>
@@ -59,7 +59,17 @@ export default{
     }
   },
    async created(){        
+      const response = await fetch("https://skin-care-tips.herokuapp.com/api/user/login/");
+      if(localStorage.getItem("token")===null){
+        console.log(localStorage.getItem("token"));
+        
+        this.$router.push({
+                   name: 'login',
+                  params: {message: response.message}
+               });
+      }else{
         this.products = await API.getAllProducts();
+      }
 
       },
 
