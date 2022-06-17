@@ -15,7 +15,7 @@
             {{product.category}}
           </v-card-text>
           <v-card-title class="headline">
-            {{product.nombre}}
+            {{product.nombre}}- ${{product.price}}
           </v-card-title>
           <v-card-text class="py-0" >
             <p>

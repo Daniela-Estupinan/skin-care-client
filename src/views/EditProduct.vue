@@ -10,7 +10,9 @@
                     <v-form ref="form" @submit.prevent="updateForm" class="pa-5" enctype="multipart/form-data">
                     <v-text-field label="Nombre" v-model="product.nombre" prepend-icon="mdi-note" :rules="rules"></v-text-field>
                     <v-text-field label="Category ID" v-model="product.categoryN" prepend-icon="mdi-view-list" :rules="rules"></v-text-field>
-                    <v-text-field label="Category" v-model="product.category" prepend-icon="mdi-view-list" :rules="rules"></v-text-field>                    
+                    <v-text-field label="Category" v-model="product.category" prepend-icon="mdi-view-list" :rules="rules"></v-text-field>  
+                    <v-text-field label="Price Range" v-model="product.priceR" prepend-icon="mdi-coin" :rules="rules"></v-text-field> 
+                    <v-text-field label="Price" v-model="product.price" prepend-icon="mdi-coin" :rules="rules"></v-text-field>                                   
                     <v-textarea label="Content" v-model="product.content" prepend-icon="mdi-note-plus" :rules="rules"></v-textarea>     
                     <v-btn type="submit" class="mt-3" color="success">Update Product</v-btn>      
                     </v-form>
@@ -30,6 +32,8 @@ export default{
                 categoryN:"",               
                 category:"",
                 content:"",
+                priceR:"",
+                price:"",
 
             },
         };
@@ -47,6 +51,9 @@ export default{
             formData.append('categoryN',this.product.categoryN);
            formData.append('category', this.product.category);
            formData.append('content', this.product.content);
+           formData.append('priceR', this.product.priceR);
+           formData.append('price',this.product.price);
+
 
 
            if(this.$refs.form.validate()){
