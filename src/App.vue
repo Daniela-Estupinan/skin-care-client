@@ -65,6 +65,7 @@
         { title: 'Home', icon: 'mdi-home',link:"/home" },
         { title: 'Add Post', icon: 'mdi-note-plus',link:"/add-post" },
         { title: 'Productos', icon: 'mdi-shopping',link:"/about" },
+        { title: 'Category', icon: 'mdi-chart-bubble',link:"/category" },
         
       ],
      }),
